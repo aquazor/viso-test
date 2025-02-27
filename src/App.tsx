@@ -14,7 +14,8 @@ const router = createBrowserRouter(
       <Route path="/favorite" element={<Favorite />} />
       <Route path="/:id" element={<Meal />} />
     </Route>
-  )
+  ),
+  { basename: '/viso-test/' }
 );
 export function App() {
   return <RouterProvider router={router} />;

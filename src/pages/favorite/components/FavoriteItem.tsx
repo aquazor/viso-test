@@ -33,34 +33,31 @@ export function FavoriteItem({ meal }: { meal: MealDto }) {
       key={meal.idMeal}
       className="shadow-md flex flex-col bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
     >
-      <div className="w-full sm:h-[30rem]">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 px-3">
         <Link to={`/${meal.idMeal}`} className="block h-full">
           <img
-            className="w-full max-h-full object-cover block rounded-t-lg"
+            className="rounded-b-full sm:h-[30rem] object-cover block "
             src={meal.strMealThumb}
             alt={meal.strMeal}
           />
         </Link>
+
+        <div className="flex flex-col items-center gap-2 text-center md:w-1/2">
+          <h2 className="mb-3 text-4xl font-bold tracking-tight text-white">
+            {meal.strMeal}
+          </h2>
+
+          <p className="mb-2 font-normal text-white text-xl">
+            This is a <span className="text-2xl">{meal.strArea}</span> dish
+          </p>
+          <p className="mb-3 font-normal text-white text-xl">
+            Category: <span className="text-2xl">{meal.strCategory}</span>
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2 p-3 grow">
         <div className="shrink-0 flex flex-col gap-2">
-          <div className="flex items-center gap-2">
-            <h5 className="mb-3 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {meal.strMeal}
-            </h5>
-
-            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-              This is a{' '}
-              <span className="text-gray-500 dark:text-gray-200">{meal.strArea}</span>{' '}
-              dish
-            </p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Category:{' '}
-              <span className="text-gray-500 dark:text-gray-200">{meal.strCategory}</span>
-            </p>
-          </div>
-
           <div className="mt-auto flex justify-between self-end gap-2 items-center">
             <div onClick={handleToggleFavorite}>
               <button
